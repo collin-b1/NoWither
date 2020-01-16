@@ -1,0 +1,7 @@
+# These values determine the protected area where Withers cannot be spawned (If witherSpawn is set to true).
+witherSpawn: true
+
+fromX: -128
+toX: 128
+fromZ: -128
+toZ: 128
