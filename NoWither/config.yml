@@ -5,3 +5,11 @@ fromX: -128
 toX: 128
 fromZ: -128
 toZ: 128
+
+# worlds where wither spawn it's forbidden entirely
+worlds:
+  - testdeleteme
+  
+# worlds where wither spawn it's forbidden in a area
+worlds_area:
+  - any
