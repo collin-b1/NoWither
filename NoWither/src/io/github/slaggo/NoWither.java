@@ -29,11 +29,22 @@ public class NoWither extends JavaPlugin implements Listener {
 	}
 	
 	@EventHandler
-	public void onWitherSpawn (EntitySpawnEvent e) {
+		public void onWitherSpawn (EntitySpawnEvent e) {
 		if (e.getEntity().getType() == EntityType.WITHER) {
-			if (!checkPos(e.getLocation().getX(), e.getLocation().getZ()) || !config.getBoolean("witherSpawn")) {
+			if (!config.getBoolean("witherSpawn")) {
 				e.setCancelled(true);
+				return;
 			}
+			String world = e.getLocation().getWorld().getName();
+			if (getConfig().getList("worlds").contains(world)){
+				e.setCancelled(true);
+				return;
+			}
+			if (getConfig().getList("worlds_area").contains(world)
+					|| getConfig().getList("worlds_area").contains("any"))
+				if (!checkPos(e.getLocation().getX(), e.getLocation().getZ())) {
+					e.setCancelled(true);
+				}
 		}
 	}
 	
